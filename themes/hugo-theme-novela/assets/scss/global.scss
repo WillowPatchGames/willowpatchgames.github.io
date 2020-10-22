@@ -225,3 +225,7 @@ img{
   0% {-webkit-filter: blur(8px);filter: blur(8px); opacity: 0;}
   100% {-webkit-filter: blur(0);filter: blur(0); opacity: 1;}
 }
+
+.invert img{
+  filter: invert(1) grayscale(100%);
+}

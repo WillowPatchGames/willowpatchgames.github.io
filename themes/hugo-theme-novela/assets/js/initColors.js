@@ -1,5 +1,6 @@
 
 let be = document.getElementsByTagName("BODY")[0];
+let sl = {};
 
 initColors();
 
@@ -24,7 +25,7 @@ function makeDark(){
     be.style.setProperty('--background-color', "#111216");
     be.style.setProperty('--accent', "#E9DAAC");
     be.style.setProperty('--hover', "rgba(255, 255, 255, 0.07)");
-    be.style.setProperty('--gradient', "linear-gradient(180deg, #111216 0%, rgba(66, 81, 98, 0.36) 100%)");
+    be.style.setProperty('--gradient', "");
     be.style.setProperty('--articleText', "#fff");
     be.style.setProperty('--track', "rgba(255, 255, 255, 0.3)");
     be.style.setProperty('--progress', "#fff");
@@ -35,6 +36,10 @@ function makeDark(){
     be.style.setProperty('--horizontalRule', "rgba(255, 255, 255, 0.15)");
     be.style.setProperty('--inputBackground', "rgba(255, 255, 255, 0.07)");
     be.style.setProperty('--tooltip', "#000");
+    be.onload = function() {
+        sl.elem = document.getElementById("site-logo");
+        sl.elem.classList.add("invert");
+    }
 }
 
 function makeLight(){
@@ -55,4 +60,8 @@ function makeLight(){
     be.style.setProperty('--horizontalRule', "");
     be.style.setProperty('--inputBackground', "");
     be.style.setProperty('--tooltip', "lightgrey");
+    be.onload = function() {
+        sl.elem = document.getElementById("site-logo");
+        sl.elem.classList.remove("invert");
+    }
 }

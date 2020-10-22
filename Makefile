@@ -18,4 +18,5 @@ tarball:
 deploy: dist
 	mv $(DIST).xz ../ansible/files/$(DIST).xz
 	cd ../nginx-configs && tar -cJf ../ansible/files/nginx.tar.xz *
-	cd ../ansible && ansible-playbook -i hosts blog-setup.yml
+	cd ../ansible && bash ./backup.sh blog
+	cd ../ansible && ansible-playbook -i hosts blog.yml

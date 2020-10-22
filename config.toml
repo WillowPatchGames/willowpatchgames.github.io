@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://blog.willowpatchgames.com"
 languageCode = "en-us"
 title = "Blog @ Willow Patch Games"
 paginate = 6

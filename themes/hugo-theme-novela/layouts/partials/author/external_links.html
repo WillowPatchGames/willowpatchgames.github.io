@@ -1,5 +1,5 @@
-<div class="social-icon-outer authors-sio">
-    <div class="social-icon-container">
+<div class="external-icon-outer authors-sio">
+    <div class="external-icon-container">
         {{ range $component := .Params.social }}
             {{ $path := print "icons/social/" .title }}
             <a href="{{ .url }}">{{ partial $path $ }}</a>

@@ -1,3 +1,12 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Blog @ Willow Patch Games"
+paginate = 6
+theme = "hugo-theme-novela"
+
+[social]
+twitter = "https://twitter.com/willowpatchgame"
+website = "https://willowpatchgames.com"
+
+[taxonomies]
+author = "authors"

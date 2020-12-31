@@ -5,6 +5,8 @@ excerpt: "In this spicy take on an Uno twist, the Dark Side strikes again!"
 hero: /images/deck-of-cards.jpg
 timeToRead: 4
 category: rules
+authors:
+ - "Alex Scheel"
 draft: false
 ---
 

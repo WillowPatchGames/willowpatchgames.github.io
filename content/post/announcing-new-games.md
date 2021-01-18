@@ -87,4 +87,4 @@ implement.
 
 Interested in commissioning a game?
 
-We're available! Drop us [a mail](willowpatchgames@gmail.com) and we can discuss.
+We're available! Drop us [a mail](mailto:willowpatchgames@gmail.com) and we can discuss.

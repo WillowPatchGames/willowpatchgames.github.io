@@ -8,11 +8,11 @@ server:
 	hugo server -D
 
 build:
-	hugo
+	hugo -d docs
 
 tarball:
 	rm -f $(DIST) $(DIST).xz
-	tar -cf $(DIST) public
+	tar -cf $(DIST) docs
 	xz $(DIST)
 
 deploy: dist

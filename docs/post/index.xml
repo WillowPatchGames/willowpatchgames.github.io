@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Blog @ Willow Patch Games</title>
+    <link>https://blog.willowpatchgames.com/post/</link>
+    <description>Recent content in Posts on Blog @ Willow Patch Games</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 17 Jan 2021 09:46:33 -0500</lastBuildDate><atom:link href="https://blog.willowpatchgames.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Announcing Card Games on Willow Patch Games!</title>
+      <link>https://blog.willowpatchgames.com/post/announcing-new-games/</link>
+      <pubDate>Sun, 17 Jan 2021 09:46:33 -0500</pubDate>
+      
+      <guid>https://blog.willowpatchgames.com/post/announcing-new-games/</guid>
+      <description>Here at Willow Patch Games, we&amp;rsquo;re excited to announce several new card games are available to play! This is a new genre we&amp;rsquo;re expanding into and we hope all y&amp;rsquo;all enjoy it.
+As with all our games, we&amp;rsquo;ve provided extensive configuration to make the game as realistic to your home gameplay as possible &amp;ndash; or just to spice it up every once in a while.
+ Spades    Minimum Players Maximum Players Game Length     2 7 About an hour    Spades is a game of strategy and skill.</description>
+    </item>
+    
+    <item>
+      <title>Rules to Spicy Uno Flip</title>
+      <link>https://blog.willowpatchgames.com/post/spicy-uno-flip/</link>
+      <pubDate>Sat, 26 Dec 2020 18:05:19 -0500</pubDate>
+      
+      <guid>https://blog.willowpatchgames.com/post/spicy-uno-flip/</guid>
+      <description>While looking for new variants of Uno, we stumbled upon Spicy Uno. An extra 6 rules on top of regular Uno, it changed our playing of this classic. Last year for Christmas, we had gifted (and subsequently played) Uno Flip, an officially sanctioned Uno variant known for its shocking Dark Side.
+We were surprised nobody appears to have published a port of Spicy Uno to the Uno Flip card set. So, from Liz and Alex at Willow Patch Games, here&amp;rsquo;s our proposal.</description>
+    </item>
+    
+    <item>
+      <title>First Day of Bootcamp</title>
+      <link>https://blog.willowpatchgames.com/post/first-day-of-bootcamp/</link>
+      <pubDate>Sat, 31 Oct 2020 19:08:32 -0500</pubDate>
+      
+      <guid>https://blog.willowpatchgames.com/post/first-day-of-bootcamp/</guid>
+      <description>All new adventures need those moments you go &amp;ldquo;heads down&amp;rdquo;. We here at Willow Patch Games are spending some quality time over the next few days, face-to-face, tackling the next batch of &amp;ldquo;stickies&amp;rdquo; on our Wall-of-Work.
+As the newbie in the bunch, I was tasked with blogging about our activities today. Personally, I completed setup of my environment. (Thanks, Alex, for all your help troubleshooting errors!) Then, I focused on reviewing a few PRs most beginning with the Privacy Policy.</description>
+    </item>
+    
+    <item>
+      <title>Welcome to Willow Patch Games</title>
+      <link>https://blog.willowpatchgames.com/post/welcome-to-willow-patch-games/</link>
+      <pubDate>Wed, 21 Oct 2020 20:58:55 -0400</pubDate>
+      
+      <guid>https://blog.willowpatchgames.com/post/welcome-to-willow-patch-games/</guid>
+      <description>Welcome to Willow Patch Games!
+We&amp;rsquo;re happy to say that we&amp;rsquo;ve launched after a great batch of feedback from our Show HN. Over 40 people turned out and played games with us during this event, and several more emailed us showing their interest and reporting bugs.
+We&amp;rsquo;re excited to say we&amp;rsquo;ve appreciated all the feedback people gave and are moving forward on improvements to Willow Patch Games. Our first step is content writing to help new visitors find out what we do, and help new players figure out how to play games.</description>
+    </item>
+    
+  </channel>
+</rss>

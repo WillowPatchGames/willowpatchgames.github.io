@@ -1,50 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://blog.willowpatchgames.com/</loc>
-    <lastmod>2021-01-17T09:46:33-05:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2021-02-19T05:05:59-05:00</lastmod>
+  </url><url>
+    <loc>https://blog.willowpatchgames.com/authors/</loc>
+    <lastmod>2021-02-19T05:05:59-05:00</lastmod>
+  </url><url>
+    <loc>https://blog.willowpatchgames.com/post/gin-solver/</loc>
+    <lastmod>2021-02-19T05:05:59-05:00</lastmod>
+  </url><url>
+    <loc>https://blog.willowpatchgames.com/post/</loc>
+    <lastmod>2021-02-19T05:05:59-05:00</lastmod>
+  </url><url>
     <loc>https://blog.willowpatchgames.com/post/announcing-new-games/</loc>
     <lastmod>2021-01-17T09:46:33-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.willowpatchgames.com/authors/</loc>
-    <lastmod>2021-01-17T09:46:33-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.willowpatchgames.com/post/</loc>
-    <lastmod>2021-01-17T09:46:33-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.willowpatchgames.com/post/spicy-uno-flip/</loc>
     <lastmod>2020-12-26T18:05:19-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.willowpatchgames.com/post/first-day-of-bootcamp/</loc>
     <lastmod>2020-10-31T19:08:32-05:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.willowpatchgames.com/authors/alex-scheel/</loc>
     <lastmod>2020-10-21T21:14:29-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://blog.willowpatchgames.com/authors/jeff-scheel/</loc>
     <lastmod>2020-10-21T21:14:29-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://blog.willowpatchgames.com/authors/verity-scheel/</loc>
+    <lastmod>2020-10-21T21:14:29-04:00</lastmod>
+  </url><url>
     <loc>https://blog.willowpatchgames.com/post/welcome-to-willow-patch-games/</loc>
     <lastmod>2020-10-21T20:58:55-04:00</lastmod>
   </url>
-  
 </urlset>

@@ -1,0 +1,369 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="/images/logo.png">
+    
+    <link rel="stylesheet" href="/scss/global.min.118a23ca6749ff398af8e8fdf87600410185307535ac53b35b8491a6dc918a9c.css">
+    
+    <link rel="stylesheet" href="/css/prism.css" />
+    <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+    
+
+ 
+
+
+
+
+
+
+	
+
+
+
+
+<title>Optimizing Gin Hands | Blog @ Willow Patch Games</title>
+<meta name="description" content="Backstory When we started adding card games to our repertoire, the first game we coded up was Spades. A classic among our family and friends, I’ve played it many times with (and against) my brother. The rules are pretty straightforward, but the fun twists of strategy lie in the bidding and the game play: whether your hand is good or bad depends on how others are choosing to play, as much as the luck of the cards themselves!">
+<meta property="og:title" content="Optimizing Gin Hands | Blog @ Willow Patch Games">
+<meta property="og:site_name" content="Blog @ Willow Patch Games">
+<meta property="og:description" content="Backstory When we started adding card games to our repertoire, the first game we coded up was Spades. A classic among our family and friends, I’ve played it many times with (and against) my brother. The rules are pretty straightforward, but the fun twists of strategy lie in the bidding and the game play: whether your hand is good or bad depends on how others are choosing to play, as much as the luck of the cards themselves!">
+<meta property="og:url" content="https://blog.willowpatchgames.com/post/gin-solver/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content='https://blog.willowpatchgames.com/images/three-thirteen.jpg'><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Optimizing Gin Hands | Blog @ Willow Patch Games">
+
+	<link rel="canonical" href="https://blog.willowpatchgames.com/post/gin-solver/">
+
+
+	<meta name="twitter:site" content="@https://twitter.com/willowpatchgame">
+	<meta name="twitter:creator" content="@https://twitter.com/willowpatchgame">
+
+	<meta name="twitter:description" content="Backstory When we started adding card games to our repertoire, the first game we coded up was Spades. A classic among our family and friends, I’ve played it many times with (and against) my brother. The rules are pretty straightforward, but the fun twists of strategy lie in the bidding and the game play: whether your hand is good or bad depends on how others are choosing to play, as much as the luck of the cards themselves!">
+<meta name="twitter:image" content="https://blog.willowpatchgames.com/images/three-thirteen.jpg">
+<meta property="article:published_time" content="2021-02-19T05:05:59-05:00">
+	<meta property="article:updated_time" content="2021-02-19T05:05:59-05:00">
+
+
+
+    </head>
+
+
+<body class="line-numbers">
+
+    
+    <script src="/js/initColors.js"></script>
+
+    <div class="layout-styled">
+
+        <Section class="section">
+  <div class="nav-container">
+    <a class="logo-link" href="/">
+      <div id="site-logo">
+        <div id="logo-desktop">
+    <img
+     width="64"
+     height="64"
+     src="/images/logo.png"
+    />
+</div>
+<div id="logo-mobile" class="hidden">
+    <img
+     width="64"
+     height="64"
+     src="/images/logo.png"
+    />
+</div>
+
+      </div>
+      <span class="header-hidden">Navigate back to the homepage</span>
+    </a>
+    <div class="nav-controls">
+      <button id="copyButton" class="icon-wrapper">
+        <svg
+    class="icon-image"
+    width="24"
+    height="20"
+    viewBox="0 0 24 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    >
+    <path
+      fillRule="evenodd"
+      clipRule="evenodd"
+      d="M2 5C2 3.34328 3.34328 2 5 2H14C15.6567 2 17 3.34328 17 5V9C17 10.6567 15.6567 12 14 12H10C9.44771 12 9 12.4477 9 13C9 13.5523 9.44771 14 10 14H14C16.7613 14 19 11.7613 19 9V5C19 2.23872 16.7613 0 14 0H5C2.23872 0 0 2.23872 0 5V9C0 10.4938 0.656313 11.8361 1.6935 12.7509C2.10768 13.1163 2.73961 13.0767 3.10494 12.6625C3.47028 12.2483 3.43068 11.6164 3.0165 11.2511C2.39169 10.6999 2 9.89621 2 9V5ZM7 11C7 9.34328 8.34328 8 10 8H14C14.5523 8 15 7.55228 15 7C15 6.44772 14.5523 6 14 6H10C7.23872 6 5 8.23872 5 11V15C5 17.7613 7.23872 20 10 20H19C21.7613 20 24 17.7613 24 15V11C24 9.50621 23.3437 8.16393 22.3065 7.24906C21.8923 6.88372 21.2604 6.92332 20.8951 7.3375C20.5297 7.75168 20.5693 8.38361 20.9835 8.74894C21.6083 9.30007 22 10.1038 22 11V15C22 16.6567 20.6567 18 19 18H10C8.34328 18 7 16.6567 7 15V11Z"
+      fill="#000"
+    />
+</svg>
+        <div id="toolTip" class="tool-tip " >
+            copied
+        </div>
+        <input id="copyText" style="opacity: 0;" type="text" class="tool-tip " />
+      </button>
+
+      <button id="themeColorButton" class="icon-wrapper"> 
+        <div id="sunRays" class="sun-rays"></div>
+        <div id="moonOrSun" class="moon-or-sun"></div>
+        <div id="moonMask" class="moon-mask"></div>
+      </button>
+    </div>
+</div>
+</Section>
+
+
+<script src="/js/toggleLogos.js"></script>
+
+
+<script src="/js/toggleColors.js"></script>
+
+
+<script src="/js/copyUrl.js"></script>
+
+
+        
+
+<section class="section narrow">
+
+    <section id="articleHero" class="section narrow">
+    <div class="article-hero">
+        <header class="article-header">
+            <h1 class="article-hero-heading">Optimizing Gin Hands</h1>
+            <div class="article-hero-subtitle">
+                <div class="article-meta">
+                    
+
+
+    
+            <a href="/authors/verity-scheel/" class="article-author-link">
+                
+                    <div class="article-author-avatar">
+                        <img src="/images/verity-scheel.jpg" />
+                    </div>
+                
+                
+                <strong>Verity Scheel</strong>
+                
+                <span class="hide-on-mobile">,&nbsp;</span>
+            </a>
+    
+
+
+
+<script src="/js/collapseAuthors.js"></script>
+                    February 19, 2021
+                    • 13 min read
+                </div>
+            </div>
+        </header>
+        
+        <div class="article-hero-image" id="ArticleImage__Hero">
+            <img src="/images/three-thirteen.jpg">
+        </div>
+        
+    </div>
+</section>
+
+
+    <aside id="progressBar" class="aside-container">
+    <div class="aside-align">
+      <div>
+        <div class="overlap-container">
+        </div>
+      </div>
+    </div>
+
+    <div class="progress-container" tabIndex={-1}>
+        <div class="track-line" aria-hidden="true">
+            <div id="progressIndicator" class="progress-line"></div>
+        </div>
+    </div>
+</aside>
+
+
+    <article  id="articleContent" class="post-content" style="position:relative;">
+        <h2 id="backstory">Backstory</h2>
+<p>When we started adding card games to our repertoire, the first game we coded up was <a href="https://en.wikipedia.org/wiki/Spades_(card_game)">Spades</a>. A classic among our family and friends, I’ve played it many times with (and against) my brother. The rules are pretty straightforward, but the fun twists of strategy lie in the bidding and the game play: whether your hand is good or bad depends on how others are choosing to play, as much as the luck of the cards themselves!</p>
+<p>The one part of it that was new to me was adapting it for different numbers of players. We’d traditionally only played it with four players, in teams of two, but it turns out there are rules for 2–6 players – and Alex had even coded the rules up with all of these variations, by the time I got there.</p>
+<p>Alex quickly decided that the next game he wanted to add was a game called <a href="https://en.wikipedia.org/wiki/Three_thirteen">Three Thirteen</a>, and we played it as a family to try it out. I had never played it before, but it’s a variation on familiar Gin and Rummy style games, which involve grouping cards into matches, which are three or more of a kind or runs of three or more (and typically runs have to be of the same suit). The goal is, of course, to get a hand with no unmatched cards – and the first player to have zero points left unmatched in their hand gets to go out first, thereby gaining an edge in the scoring.</p>
+<p>The basics of gameplay for Three thirteen are quite straightforward: the first round starts off with 3 cards, and for each round, you go around and can either take the top card off the discard pile or off the deck, and discard from the hand to maintain the same number of cards. A round ends when a player achieves a perfectly groupable hand after discarding, and then everyone gets a last chance before grouping up their hands and tallying the score of unmatched cards in their hand. The next round then begins, re-dealing and adding an additional card to each hand – until the last round, where each player has 13 cards.</p>
+<p>So the actual coding of the gameplay was straightforward, since there are only a few actions each player can take. But how to ensure the rules were being followed, and players only went out when they had no points in hand?</p>
+<p>For a while, we played lawlessly, relying on trust that users wouldn’t go out while they still had points left (as well as counting their points accurately). This actually worked suboptimally, not because we couldn’t trust each other, but because people accidentally hit the wrong button! Users also forgot or didn’t understand how to group their cards to achieve a low score.</p>
+<p>So we set out to make sure these mistakes wouldn’t happen.</p>
+<hr>
+<h2 id="the-challenge">The Challenge</h2>
+<p>In typical Scheel fashion, we decided to go overkill on the challenge: what is the minimum number of points achievable in a particular hand, given a configuration that describes what kinds of matches are possible?</p>
+<p>Alex wanted to target not only Three thirteen but all other games of this family, so the configuration included a bunch of options so it can be flexible. The configuration assigns point values to cards and designates some as wildcards. We consider matches consisting of mostly normal (i.e. non-wild) cards as always valid, but it is configurable whether mostly wild groupings and/or wholly wild groupings are allowed. Furthermore, if mostly wild groupings are not allowed, you might want to consider non-joker wildcards as their normal rank (more on this below). And finally we have a few options for runs: aces being low/high/both, or runs just generally wrapping around (e.g. King Ace 2 3). And of course whether runs have to be of the same suit or not!</p>
+<p>Okay, so we know that, for small hands with less than six cards, all of the cards would have to belong to a single group to achieve a score of 0, which wouldn’t be so hard to verify. But already due to the multiple rounds in Three thirteen, we had to consider hands with <em>any</em> number of cards. So one part of the challenge is to determine different ways of grouping the hands, and find the optimal combination of those.</p>
+<p>However, the bigger challenge that I haven’t mentioned yet is the presence of wildcards. Wildcards can stand for any particular card in order to complete a match. But what cards do you choose to pair a wildcard with? How do you minimize remaining points if there are competing ways to use it and no perfect solution for the hand? There’s a tension here between completing larger groups (e.g. a run 12_45) versus using up larger cards first (e.g. two 7s, which are actually worth more points). What’s best in a situation is influenced by what else is in the hand: maybe not matching the two sevens would free one up to be used for a run. It’s very subtle!</p>
+<p>The game Three thirteen poses <em>additional</em> challenges for this algorithm. For each round, not only is the joker a wildcard, but one additional wildcard is given for each round: starting with the 3 for the first round with 3 cards, and increasing with the number of cards up through the 10, Jack, Queen, and finally the King (which is the 13th rank, for the last round of course). <em>Furthermore</em>, in order to avoid a match that consists of more wildcards than normal cards, the special wildcard for the round <em>may</em> be considered as a normal card, for the purpose of making a match. This means that 5_7_9 is a valid match with two jokers, even if the 7 is considered wild, but it would not be valid if the 7 was another joker (since 5___9 has more wildcards than normal cards, so it is not valid in the standard rules of Three thirteen).</p>
+<p>Great. So not only do we have to find groups in the hand which satisfy certain constraints, while simultaneously assigning wildcards – we have to decide whether those wildcards are actually wild.</p>
+<p>These are choices that players have to keep in mind all the time when considering their hands. They develop intuition for what matches are the most beneficial – but that intuition leads to the chance that they could get it wrong, which would be unacceptable for an algorithm.</p>
+<p>Therefore, I focused on making sure the algorithm covered all possible cases, without refining the logic too much.</p>
+<hr>
+<h2 id="the-solution">The Solution</h2>
+<p>The algorithm generally works by searching through the correct combinations of cards that make matches, and returns the minimum score of the “deadwood” resulting from each grouping (that is, the score of the leftover cards).</p>
+<p>For efficiency, we also fix a max score to prune the search. This means that if we just want to ask whether the hand has 0 points, we don’t need to consider any groupings where there are unused cards. Not sure if it actually makes it faster, but it makes me feel better at least.</p>
+<h3 id="part-1-choose-and-anonymize-wildcards">Part 1: Choose and anonymize wildcards</h3>
+<p>My favorite insight is that it doesn’t matter what wildcards we assign where. Alex was trying to assign particular wildcards to particular spots, using up the highest-valued wildcards first, but that resulted in much more complicated code that duplicated similar logic in weird ways.</p>
+<p>Unfortunately, there was going to be a problem with my anonymous approach: how do we know when to consider a wildcard as its rank? Obviously there are situations where it is beneficial, so we don’t want to accidentally assign it elsewhere first.</p>
+<p>The short answer is we don’t even try. Instead, we just loop at the top level over trying each wildcard as itself (if it is not a joker, of course). In a worst-case scenario, this would be really inefficient – but since there are only a couple wildcards in each hand, it’s certainly worth the simplifications that happen elsewhere.</p>
+<p>So, once and for all, we try all possible assignments of wildcards as their ranks, and from now on we can assume that wildcards are actually wildcards – and they all get to be anonymous, equally valid. Great!</p>
+<h3 id="part-2-divide-and-conquer">Part 2: Divide and conquer</h3>
+<p>This part isn’t essential to the success of the algorithm (and I don’t know whether it actually speeds it up – other than reducing one source of exponential complexity), but I think it is nevertheless a nice observation. In particular, it’s one that many players pick up on intuitively and it certainly speeds up their analyses!</p>
+<p>Alex noticed that if you sort the cards in a hand, you can divide the hand at any gap of more than a card. I pointed out that it actually needed to be a gap of size greater than the number of wildcards available. But in the simple case of no wildcards, because the only matches are multiple of a kind and runs, this works: 7s and 9s will never interact if there are no 8s, so their solution spaces will be independent and we can minimize them separately.</p>
+<p>So this is the second step in the algorithm: sort and divide the hand according to gaps larger than the number of wildcards available.</p>
+<h3 id="part-3-how-to-verify-a-match">Part 3: How to verify a match</h3>
+<p>This is the core part of the algorithm, particular since it’s where the configuration comes into play. We’ll be looking at all possible matches, so we need to make sure we know what matches look like and can verify they are indeed matches.</p>
+<p>However, since I want to consider wildcards anonymously, I don’t actually return a boolean, like one would expect. Instead, I return a representation of an interval of the number of wildcards that would be compatible with the match, with a special value meaning that no match is possible no matter how many wildcards. (If matches can consist of mostly wildcards, the interval has no upper bound – otherwise, we need to limit how many could be used.)</p>
+<p>For a whole grouping of a hand, we just use interval arithmetic: add the lower bounds and the number of additional wildcards that could be accepted.</p>
+<p>Checking if all cards have the same value is pretty simple, then we just need to ensure we add wildcards so we have at least 3 cards in the group.</p>
+<p>Checking for a run is a little more complicated, especially since runs can wrap. We want to measure the span of a run (from the lowest to the highest card), since that will indicate how many wildcards we need to fill the gaps (that is the span of the run minus the number of non-wild cards). So if runs can wrap around, we search for the largest gap, and say the run starts above that and ends below it. (And if aces are both high and low we only check for a gap at the start, if aces are only high we force the run to start at 2 or more.)</p>
+<h3 id="part-4-look-at-all-the-matches">Part 4: Look at all the matches</h3>
+<p>Yes, <strong>all</strong> the matches.</p>
+<p>You could do some elegant algorithm to walk the lattice structure that arises from the combination of card suit and rank. Basically you search around for the closest cards (in rank or suit), and try each of them to make a match, or try to use a wildcard to bridge the gap to a further card.</p>
+<p>I implemented that logic. It was fun to work on, but it was noticeably slower than the naïve algorithm of just trying every match! So that’s just what I do: look at every combination of cards, and ask how many wildcards are needed to make it a valid match, and then record it if it makes sense.</p>
+<p>Next, now that we have a listing of the individual matches that can be tried, we want to find the combinations of disjoint matches that minimize the deadwood. We actually only need to consider maximal matches (matches which have no obvious extension to make it better), but again I ended up just coding it so it checks all combinations of matches that don’t overlap.</p>
+<h3 id="part-5-putting-it-together">Part 5: Putting it together</h3>
+<p>We have all the parts we need to find and check solutions, now to fit it all together.</p>
+<p>As noted in part 1, this whole process takes place in a loop that tries all assignments of wildcards to be wild or normal, so none of the other logic has to care about this part of it.</p>
+<p>Once we do that, we know the number of wildcards we have on hand, which we use for pruning the search along with the maximum score information.</p>
+<p>So as the second step, we divide the hand as in part 2 (finding gaps larger than the number of wildcards), so we can focus on smaller parts of the problem independently.</p>
+<p>For each division, we now get a list of all possible matches à la part 4, and then we look at all possible non-overlapping groupings from those matchings.</p>
+<p>Note that each grouping (like an individual match) is associated with an interval of wildcards that it works for. We thus build up a map from number of wildcards to the best possible score we can get for it, for each division.</p>
+<p>Finally, we do two final loops to get the actual minimum score: we choose how many wildcards to use up (preferably all of them!), and then we partition them into the different divisions (so if we have 3 wildcards across 2 divisions, we can assign 0 and 3, 1 and 2, 2 and 1, or 3 and 0). From the calculations we’ve done above, we can now lookup what the best score for the specified number of wildcards in each division is, and thus find the best score overall.</p>
+<hr>
+<h2 id="takeaways">Takeaways</h2>
+<p>One of my main takeaways from writing this algorithm is that it just needs to be good enough: it just needs to make sure we explore all the possibilities, given that we have a way of recognizing valid results and scoring them to find the minimum. In particular, the algorithm technically has exponential complexity in parts (e.g. <code>O(2^n)</code> for enumerating all subsets, which is used in a few places), but because <code>n</code> here is either the total number of matches, cards, or wildcards, it remains quite small and it will run quickly enough for any given hand, since the hands are small, wildcards scarce, and matches not too common. In fact, as I mentioned in Part 4, a “smarter” algorithm (which was polynomial time) actually took more time to run! (Those ruinous constant factors …)</p>
+<p>The main challenge is the non-locality of solutions: since the matches cannot overlap, choosing one means throwing out others, so a greedy algorithm would not suffice. But instead of backtracking, we just plan on enumerating all possibilities from the start, as I said before.</p>
+<p>The two main insights were that we can keep wildcards anonymous and that when there is a gap that cannot be filled with the available wildcards, the lower and upper sides of the gap can be solved independently. These are both are useful intuitive strategies to help players solve cards in their head. Of course, human players have a better intuitive grasp of which numbers fit better with runs versus triplets, but computers are great at just churning through all the combinations.</p>
+<p>Finally, the practical benefit of implementing these algorithms is that it helps the most complicated part of the game go more smoothly: the computer will guide users to the right answers of the essential questions “Can I go out now?” and “Am I getting my best possible score?” – in particular, avoiding mistakes of clicking the wrong buttons or not understanding how the grouping mechanism works.</p>
+<h3 id="future-work">Future work</h3>
+<p>It would be nice to extend the algorithm so it returns the actual best grouping it found, along with explanations to walk the user through the reasoning or something like that. One main challenge would be finding where wildcards actually fit in, since we made them anonymous (it is implicitly calculated while verifying runs, but that data is never returned). And currently the error messages just tell the user <em>that</em> a group of cards was not valid, with no explanation as to <em>why</em> – so some feedback like “Runs need to be of the same suit!” or “Runs do not wrap around from King to Ace to Two!” or “Too many wildcards!” or “What the heck were you thinking?” would be great.</p>
+
+    </article>
+
+
+    
+
+
+
+
+
+    
+    
+    
+        
+    
+
+
+
+
+<section id="articleNext" class="section nartrow">
+    <h3 class="footer-next-heading">More articles from Blog @ Willow Patch Games</h3>
+    <div class="footer-spacer"></div>
+    <div class="next-articles-grid" numberOfArticles={numberOfArticles}>
+        <div class="post-row">
+            
+                <a href="/post/announcing-new-games/" class="article-link"
+                 id="article-link-bigger">
+                    <div>
+                        <div class="image-container">
+                            <img src="/images/spades-hand.jpg" class="article-image" />
+                        </div>
+                        <div>
+                            <h2 class="article-title">
+                                Announcing Card Games on Willow Patch Games!
+                            </h2>
+                            <p class="article-excerpt">
+                                Spades, Hearts, and more are now available to play on Willow Patch Games!
+                            </p>
+                            <div class="article-metadata">
+                                January 17, 2021 · 3 min read
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            
+                <a href="/post/spicy-uno-flip/" class="article-link"
+                >
+                    <div>
+                        <div class="image-container">
+                            <img src="/images/deck-of-cards.jpg" class="article-image" />
+                        </div>
+                        <div>
+                            <h2 class="article-title">
+                                Rules to Spicy Uno Flip
+                            </h2>
+                            <p class="article-excerpt">
+                                In this spicy take on an Uno twist, the Dark Side strikes again!
+                            </p>
+                            <div class="article-metadata">
+                                December 26, 2020 · 3 min read
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            
+        </div>
+    </div>
+</section>
+
+</section>
+
+
+ <script src="/js/progressBar.js"></script>
+
+        
+        <div class="footer-gradient"></div>
+    <div class="section narrow">
+      <div class="footer-hr"></div>
+      <div class="footer-container">
+        <div class="footer-text">
+          © 2022 Blog @ Willow Patch Games
+        </div>
+        <div class="external-icon-outer">
+    <div class="external-icon-container">
+        
+            
+                
+                <a href="https://twitter.com/willowpatchgame"><svg
+class="external-icon-image"
+width="32"
+height="32"
+viewBox="0 0 16 13"
+fill="none"
+xmlns="http://www.w3.org/2000/svg"
+{...props}
+>
+<path
+  fillRule="evenodd"
+  clipRule="evenodd"
+  d="M14.0658 2.34438C14.7013 1.96349 15.1892 1.3604 15.419 0.641811C14.8244 0.994439 14.1658 1.25056 13.4648 1.3886C12.9034 0.7905 12.1036 0.416748 11.2185 0.416748C9.51888 0.416748 8.14096 1.79461 8.14096 3.49411C8.14096 3.7353 8.16822 3.97019 8.22068 4.19542C5.66301 4.06708 3.39543 2.84191 1.8776 0.980064C1.6127 1.43458 1.46094 1.96322 1.46094 2.52719C1.46094 3.59485 2.00428 4.5368 2.83003 5.08865C2.32553 5.07268 1.85104 4.93425 1.43608 4.70376C1.43586 4.71659 1.43586 4.72949 1.43586 4.74244C1.43586 6.23349 2.49666 7.47732 3.90448 7.75999C3.64622 7.83033 3.37436 7.86792 3.09366 7.86792C2.89537 7.86792 2.70257 7.84866 2.51471 7.81272C2.90629 9.03537 4.0428 9.92509 5.38945 9.94994C4.33623 10.7753 3.00928 11.2673 1.56749 11.2673C1.31911 11.2673 1.07413 11.2528 0.833374 11.2243C2.19527 12.0975 3.81291 12.6069 5.55081 12.6069C11.2113 12.6069 14.3067 7.91763 14.3067 3.85096C14.3067 3.71753 14.3037 3.5848 14.2978 3.45285C14.899 3.01896 15.4208 2.47694 15.8334 1.8598C15.2815 2.10456 14.6884 2.26998 14.0658 2.34438Z"
+  fill="#73737D"
+/>
+</svg>
+</a>
+                <span class="hidden">https://twitter.com/willowpatchgame</span>
+            
+        
+            
+                
+                <a href="https://willowpatchgames.com"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#73737D" width="32" height="32"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 5.69l5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
+</a>
+                <span class="hidden">https://willowpatchgames.com</span>
+            
+        
+    </div>
+</div>
+    </div>
+</div>
+
+    </div>
+
+    
+    <script src="/js/prism.js"></script>
+</body>
+
+</html>

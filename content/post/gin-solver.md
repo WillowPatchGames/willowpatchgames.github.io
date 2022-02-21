@@ -1,3 +1,15 @@
+---
+title: "Optimizing Gin Hands"
+date: 2021-02-19T05:05:59-05:00
+excerpt: "A novel algorithm for optimal scores in Gin, Three Thirteen and more!"
+hero: "/images/three-thirteen.jpg"
+readingTime: 12
+category: posts
+authors:
+ - "Verity Scheel"
+draft: false
+---
+
 ## Backstory
 When we started adding card games to our repertoire, the first game we coded up was [Spades](https://en.wikipedia.org/wiki/Spades_(card_game)). A classic among our family and friends, I’ve played it many times with (and against) my brother. The rules are pretty straightforward, but the fun twists of strategy lie in the bidding and the game play: whether your hand is good or bad depends on how others are choosing to play, as much as the luck of the cards themselves!
 
@@ -12,6 +24,8 @@ So the actual coding of the gameplay was straightforward, since there are only a
 For a while, we played lawlessly, relying on trust that users wouldn’t go out while they still had points left (as well as counting their points accurately). This actually worked suboptimally, not because we couldn’t trust each other, but because people accidentally hit the wrong button! Users also forgot or didn’t understand how to group their cards to achieve a low score.
 
 So we set out to make sure these mistakes wouldn’t happen.
+
+-----
 
 ## The Challenge
 In typical Scheel fashion, we decided to go overkill on the challenge: what is the minimum number of points achievable in a particular hand, given a configuration that describes what kinds of matches are possible?
@@ -29,6 +43,8 @@ Great. So not only do we have to find groups in the hand which satisfy certain c
 These are choices that players have to keep in mind all the time when considering their hands. They develop intuition for what matches are the most beneficial – but that intuition leads to the chance that they could get it wrong, which would be unacceptable for an algorithm.
 
 Therefore, I focused on making sure the algorithm covered all possible cases, without refining the logic too much.
+
+-----
 
 ## The Solution
 The algorithm generally works by searching through the correct combinations of cards that make matches, and returns the minimum score of the “deadwood” resulting from each grouping (that is, the score of the leftover cards).
@@ -85,6 +101,8 @@ For each division, we now get a list of all possible matches à la part 4, and t
 Note that each grouping (like an individual match) is associated with an interval of wildcards that it works for. We thus build up a map from number of wildcards to the best possible score we can get for it, for each division.
 
 Finally, we do two final loops to get the actual minimum score: we choose how many wildcards to use up (preferably all of them!), and then we partition them into the different divisions (so if we have 3 wildcards across 2 divisions, we can assign 0 and 3, 1 and 2, 2 and 1, or 3 and 0). From the calculations we’ve done above, we can now lookup what the best score for the specified number of wildcards in each division is, and thus find the best score overall.
+
+-----
 
 ## Takeaways
 One of my main takeaways from writing this algorithm is that it just needs to be good enough: it just needs to make sure we explore all the possibilities, given that we have a way of recognizing valid results and scoring them to find the minimum. In particular, the algorithm technically has exponential complexity in parts (e.g. `O(2^n)` for enumerating all subsets, which is used in a few places), but because `n` here is either the total number of matches, cards, or wildcards, it remains quite small and it will run quickly enough for any given hand, since the hands are small, wildcards scarce, and matches not too common. In fact, as I mentioned in Part 4, a “smarter” algorithm (which was polynomial time) actually took more time to run! (Those ruinous constant factors …)

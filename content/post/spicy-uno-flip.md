@@ -6,7 +6,7 @@ hero: /images/deck-of-cards.jpg
 timeToRead: 4
 category: rules
 authors:
- - "Alex Scheel"
+ - "00-alex-scheel"
 draft: false
 ---
 

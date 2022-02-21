@@ -6,7 +6,7 @@ hero: "/images/spades-hand.jpg"
 timeToRead: 3
 category: posts
 authors:
- - "Alex Scheel"
+ - "00-alex-scheel"
 draft: false
 ---
 

@@ -6,7 +6,7 @@ hero: /images/wpg.png
 timeToRead: 1
 category: posts
 authors:
- - "Alex Scheel"
+ - "00-alex-scheel"
 ---
 
 Welcome to [Willow Patch Games](https://willowpatchgames.com)!

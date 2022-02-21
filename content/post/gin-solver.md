@@ -6,7 +6,7 @@ hero: "/images/three-thirteen.jpg"
 readingTime: 12
 category: posts
 authors:
- - "Verity Scheel"
+ - "01-verity-scheel"
 draft: false
 ---
 

@@ -6,7 +6,7 @@ hero: /images/WallofWork.jpg
 timeToRead: 1
 category: posts
 authors:
- - "Jeff Scheel"
+ - "02-jeff-scheel"
 ---
 
 All new adventures need those moments you go "heads down".  We here

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jeff Scheel on Blog @ Willow Patch Games</title>
+    <link>https://blog.willowpatchgames.com/authors/02-jeff-scheel/</link>
+    <description>Recent content in Jeff Scheel on Blog @ Willow Patch Games</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 Oct 2020 21:14:29 -0400</lastBuildDate><atom:link href="https://blog.willowpatchgames.com/authors/02-jeff-scheel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First Day of Bootcamp</title>
+      <link>https://blog.willowpatchgames.com/post/first-day-of-bootcamp/</link>
+      <pubDate>Sat, 31 Oct 2020 19:08:32 -0500</pubDate>
+      
+      <guid>https://blog.willowpatchgames.com/post/first-day-of-bootcamp/</guid>
+      <description>All new adventures need those moments you go &amp;ldquo;heads down&amp;rdquo;. We here at Willow Patch Games are spending some quality time over the next few days, face-to-face, tackling the next batch of &amp;ldquo;stickies&amp;rdquo; on our Wall-of-Work.
+As the newbie in the bunch, I was tasked with blogging about our activities today. Personally, I completed setup of my environment. (Thanks, Alex, for all your help troubleshooting errors!) Then, I focused on reviewing a few PRs most beginning with the Privacy Policy.</description>
+    </item>
+    
+  </channel>
+</rss>

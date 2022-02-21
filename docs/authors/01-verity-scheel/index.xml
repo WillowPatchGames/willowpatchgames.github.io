@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Verity Scheel on Blog @ Willow Patch Games</title>
+    <link>https://blog.willowpatchgames.com/authors/01-verity-scheel/</link>
+    <description>Recent content in Verity Scheel on Blog @ Willow Patch Games</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 Oct 2020 21:14:29 -0400</lastBuildDate><atom:link href="https://blog.willowpatchgames.com/authors/01-verity-scheel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Optimizing Gin Hands</title>
+      <link>https://blog.willowpatchgames.com/post/gin-solver/</link>
+      <pubDate>Fri, 19 Feb 2021 05:05:59 -0500</pubDate>
+      
+      <guid>https://blog.willowpatchgames.com/post/gin-solver/</guid>
+      <description>Backstory When we started adding card games to our repertoire, the first game we coded up was Spades. A classic among our family and friends, I’ve played it many times with (and against) my brother. The rules are pretty straightforward, but the fun twists of strategy lie in the bidding and the game play: whether your hand is good or bad depends on how others are choosing to play, as much as the luck of the cards themselves!</description>
+    </item>
+    
+  </channel>
+</rss>
